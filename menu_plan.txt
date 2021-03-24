@@ -1,0 +1,24 @@
+File
+	New Project
+	Open Project
+	Close Project
+	---
+	Export to asset pack
+	Import asset pack
+	---
+	Save Current File
+	Save All
+	---
+	Exit
+View
+	[Available Views?]
+Tools
+	???
+	Item builder
+		Using tech Shell and I talked about with hue differences and finding the "shadow map" or sorts
+Window
+	Tile? and other view options
+	[Window List]
+Help
+	About
+	Licenses
