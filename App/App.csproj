@@ -22,10 +22,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\..\Libs\DarkUI\DarkUI\DarkUI.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<Compile Update="Resources\Icons.Designer.cs">
 			<DesignTime>True</DesignTime>
 			<AutoGen>True</AutoGen>
@@ -42,6 +38,10 @@
 
 	<ItemGroup>
 		<Folder Include="Extensions\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Lib\DarkUI\DarkUI\DarkUI.csproj" />
 	</ItemGroup>
 
 </Project>
