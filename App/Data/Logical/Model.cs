@@ -1,30 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using Newtonsoft.Json;
 
 namespace MCPackEditor.App.Data.Logical {
 	public class Model {
-		public struct DisplayPosition {
-			public System.Numerics.Vector3? Rotation { get; set; }
-			public System.Numerics.Vector3? Translation { get; set; }
-			public System.Numerics.Vector3? Scale { get; set; }
-		}
-
 		public string? Parent { get; set; }
 		public bool AmbientOcclusion { get; set; } = true;
 
-		public DisplayPosition? ThirdPerson_RightHand { get; set; }
-		public DisplayPosition? ThirdPerson_LeftHand { get; set; }
-		public DisplayPosition? FirstPerson_RightHand { get; set; }
-		public DisplayPosition? FirstPerson_LeftHand { get; set; }
-		public DisplayPosition? Gui { get; set; }
-		public DisplayPosition? Head { get; set; }
-		public DisplayPosition? Ground { get; set; }
-		public DisplayPosition? Fixed { get; set; }
+		public IDictionary<string, Assets.BlockModelFile.ModelDisplay> Display { get; } = new Dictionary<string, Assets.BlockModelFile.ModelDisplay>();
 
 		public IDictionary<string, string> Textures { get; } = new Dictionary<string, string>();
-		public ICollection<CuboidElement> Elements { get; } = new List<CuboidElement>();
+		public ICollection<Assets.BlockModelFile.CuboidElement> Elements { get; } = new List<Assets.BlockModelFile.CuboidElement>();
+
+		public Model( Data.Assets.BlockModelFile bmf ) {
+			Parent = bmf.parent;
+			AmbientOcclusion = bmf.ambientocclusion;
+
+			foreach( var kvp in bmf.display ) {
+				Display.Add( kvp );
+			}
+
+			foreach( var kvp in bmf.textures ) {
+				Textures.Add( kvp );
+			}
+
+			foreach( var c in bmf.elements ) {
+				Elements.Add( c );
+			}
+		}
+
+		public Model( Data.Assets.ItemModelFile imf ) {
+			Parent = imf.parent;
+			AmbientOcclusion = imf.ambientocclusion;
+
+			foreach( var kvp in imf.display ) {
+				Display.Add( kvp );
+			}
+
+			foreach( var kvp in imf.textures ) {
+				Textures.Add( kvp );
+			}
+
+			foreach( var c in imf.elements ) {
+				Elements.Add( c );
+			}
+		}
 	}
 }

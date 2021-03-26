@@ -11,11 +11,11 @@ namespace MCPackEditor.App.Forms.Docking {
 		/// Clean up any resources being used.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing) {
+		protected override void Dispose( bool disposing ) {
 			if( disposing && (components != null) ) {
 				components.Dispose();
 			}
-			base.Dispose(disposing);
+			base.Dispose( disposing );
 		}
 
 		#region Component Designer generated code
@@ -32,29 +32,29 @@ namespace MCPackEditor.App.Forms.Docking {
 			//
 			this.treeProject.AllowMoveNodes = true;
 			this.treeProject.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.treeProject.Location = new System.Drawing.Point(0, 25);
+			this.treeProject.Location = new System.Drawing.Point( 0, 25 );
 			this.treeProject.MaxDragChange = 20;
 			this.treeProject.MultiSelect = true;
 			this.treeProject.Name = "treeProject";
 			this.treeProject.ShowIcons = true;
-			this.treeProject.Size = new System.Drawing.Size(280, 425);
+			this.treeProject.Size = new System.Drawing.Size( 280, 425 );
 			this.treeProject.TabIndex = 0;
 			this.treeProject.Text = "darkTreeView1";
 			//
 			// DockProject
 			//
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF( 7F, 15F );
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Transparent;
-			this.Controls.Add(this.treeProject);
+			this.Controls.Add( this.treeProject );
 			this.DefaultDockArea = DarkUI.Docking.DarkDockArea.Left;
 			this.DockText = "Project Explorer";
-			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Font = new System.Drawing.Font( "Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)) );
 			this.Icon = global::MCPackEditor.App.Resources.Icons.application_16x;
 			this.Name = "DockProject";
 			this.SerializationKey = "DockProject";
-			this.Size = new System.Drawing.Size(280, 450);
-			this.ResumeLayout(false);
+			this.Size = new System.Drawing.Size( 280, 450 );
+			this.ResumeLayout( false );
 
 		}
 

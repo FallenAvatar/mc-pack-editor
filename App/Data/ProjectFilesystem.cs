@@ -17,43 +17,43 @@ namespace MCPackEditor.App.Data {
 		public class AssetLoadedEventArgs : EventArgs {
 			public IAsset Asset { get; init; }
 
-			public AssetLoadedEventArgs(IAsset asset) { Asset = asset; }
+			public AssetLoadedEventArgs( IAsset asset ) { Asset = asset; }
 		}
 		public event AsyncEventHandler<AssetLoadedEventArgs>? AssetLoaded;
 
-		public ProjectFilesystem(string path) {
+		public ProjectFilesystem( string path ) {
 			RootPath = path;
 		}
 
 		public async Task LoadFiles() {
-			await LoadFilesInDir(RootPath);
+			await LoadFilesInDir( RootPath );
 		}
 
-		private async Task LoadFilesInDir(string p) {
-			var dirs = Directory.GetDirectories(p);
-			var files = Directory.GetFiles(p);
+		private async Task LoadFilesInDir( string p ) {
+			var dirs = Directory.GetDirectories( p );
+			var files = Directory.GetFiles( p );
 			var tasks = new List<Task>();
 
 			foreach( var f in files ) {
-				tasks.Add(LoadFile(Path.Combine(p, f)));
+				tasks.Add( LoadFile( Path.Combine( p, f ) ) );
 			}
 
 			foreach( var d in dirs ) {
-				tasks.Add(LoadFilesInDir(Path.Combine(p, d)));
+				tasks.Add( LoadFilesInDir( Path.Combine( p, d ) ) );
 			}
 
-			await Task.WhenAll(tasks);
+			await Task.WhenAll( tasks );
 		}
 
-		private async Task LoadFile(string p) {
-			var a = await AssetFactory.Open(p);
+		private async Task LoadFile( string p ) {
+			var a = await AssetFactory.Open( p );
 
 			if( a != null ) {
-				var rel_path = Path.GetRelativePath(RootPath, p);
+				var rel_path = Path.GetRelativePath( RootPath, p );
 				a.RealtivePath = rel_path;
-				files.Add(rel_path, a);
+				files.Add( rel_path, a );
 
-				await (AssetLoaded?.InvokeAllAsync(this, new AssetLoadedEventArgs(a)) ?? Task.CompletedTask);
+				await (AssetLoaded?.InvokeAllAsync( this, new AssetLoadedEventArgs( a ) ) ?? Task.CompletedTask);
 			}
 		}
 	}

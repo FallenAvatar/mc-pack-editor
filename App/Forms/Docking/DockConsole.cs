@@ -10,8 +10,8 @@ namespace MCPackEditor.App.Forms.Docking {
 
 			// Build dummy list data
 			for( var i = 0; i < 100; i++ ) {
-				var item = new DarkListItem($"List item #{i}");
-				lstConsole.Items?.Add(item);
+				var item = new DarkListItem( $"List item #{i}" );
+				lstConsole.Items?.Add( item );
 			}
 		}
 

@@ -11,11 +11,11 @@ namespace MCPackEditor.App.Forms.Docking {
 		/// Clean up any resources being used.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing) {
+		protected override void Dispose( bool disposing ) {
 			if( disposing && (components != null) ) {
 				components.Dispose();
 			}
-			base.Dispose(disposing);
+			base.Dispose( disposing );
 		}
 
 		#region Component Designer generated code
@@ -31,26 +31,26 @@ namespace MCPackEditor.App.Forms.Docking {
 			// lstConsole
 			//
 			this.lstConsole.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lstConsole.Location = new System.Drawing.Point(0, 25);
+			this.lstConsole.Location = new System.Drawing.Point( 0, 25 );
 			this.lstConsole.MultiSelect = true;
 			this.lstConsole.Name = "lstConsole";
-			this.lstConsole.Size = new System.Drawing.Size(500, 175);
+			this.lstConsole.Size = new System.Drawing.Size( 500, 175 );
 			this.lstConsole.TabIndex = 0;
 			this.lstConsole.Text = "darkListView1";
 			//
 			// DockConsole
 			//
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF( 7F, 15F );
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.lstConsole);
+			this.Controls.Add( this.lstConsole );
 			this.DefaultDockArea = DarkUI.Docking.DarkDockArea.Bottom;
 			this.DockText = "Console";
-			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Font = new System.Drawing.Font( "Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)) );
 			this.Icon = global::MCPackEditor.App.Resources.Icons.Console;
 			this.Name = "DockConsole";
 			this.SerializationKey = "DockConsole";
-			this.Size = new System.Drawing.Size(500, 200);
-			this.ResumeLayout(false);
+			this.Size = new System.Drawing.Size( 500, 200 );
+			this.ResumeLayout( false );
 
 		}
 

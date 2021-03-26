@@ -16,15 +16,15 @@ namespace MCPackEditor.App.Forms.Docking {
 			txtDocument.SelectionStart = txtDocument.Text.Length;
 
 			// Build dummy dropdown data
-			cmbOptions.Items.Add(new DarkDropdownItem("25%"));
-			cmbOptions.Items.Add(new DarkDropdownItem("50%"));
-			cmbOptions.Items.Add(new DarkDropdownItem("100%"));
-			cmbOptions.Items.Add(new DarkDropdownItem("200%"));
-			cmbOptions.Items.Add(new DarkDropdownItem("300%"));
-			cmbOptions.Items.Add(new DarkDropdownItem("400%"));
+			cmbOptions.Items.Add( new DarkDropdownItem( "25%" ) );
+			cmbOptions.Items.Add( new DarkDropdownItem( "50%" ) );
+			cmbOptions.Items.Add( new DarkDropdownItem( "100%" ) );
+			cmbOptions.Items.Add( new DarkDropdownItem( "200%" ) );
+			cmbOptions.Items.Add( new DarkDropdownItem( "300%" ) );
+			cmbOptions.Items.Add( new DarkDropdownItem( "400%" ) );
 		}
 
-		public DockDocument(string text, Image icon)
+		public DockDocument( string text, Image icon )
 			: this() {
 			DockText = text;
 			Icon = icon;
@@ -35,7 +35,7 @@ namespace MCPackEditor.App.Forms.Docking {
 		#region Event Handler Region
 
 		public override void Close() {
-			var result = DarkMessageBox.ShowWarning(@"You will lose any unsaved changes. Continue?", @"Close document", DarkDialogButton.YesNo);
+			var result = DarkMessageBox.ShowWarning( @"You will lose any unsaved changes. Continue?", @"Close document", DarkDialogButton.YesNo );
 			if( result == DialogResult.No )
 				return;
 

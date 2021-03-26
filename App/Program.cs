@@ -12,25 +12,25 @@ namespace MCPackEditor.App {
 		/// </summary>
 		[STAThread]
 		static void Main() {
-			_ = Application.SetHighDpiMode(HighDpiMode.SystemAware);
+			_ = Application.SetHighDpiMode( HighDpiMode.SystemAware );
 			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
+			Application.SetCompatibleTextRenderingDefault( false );
 
 			BuildMappings();
 
-			Application.Run(new Forms.FrmMain());
+			Application.Run( new Forms.FrmMain() );
 		}
 
 		private static void BuildMappings() {
-			AssetFactory.AddMapping<PackFile>("mcmeta", (p) => Path.GetFileName(p).ToLower() == "pack.mcmeta");
-			AssetFactory.AddMapping<LogoFile>("png", (p) => Path.GetFileName(p).ToLower() == "logo.png");
+			AssetFactory.AddMapping<PackFile>( "mcmeta", ( p ) => Path.GetFileName( p ).ToLower() == "pack.mcmeta" );
+			AssetFactory.AddMapping<LogoFile>( "png", ( p ) => Path.GetFileName( p ).ToLower() == "logo.png" );
 
-			AssetFactory.AddMapping<LangFile>("json", (p) => p.ToLower().Split(Path.DirectorySeparatorChar).Contains("lang"));
-			AssetFactory.AddMapping<BlockStateFile>("json", (p) => p.ToLower().Split(Path.DirectorySeparatorChar).Contains("blockstates"));
-			AssetFactory.AddMapping<BlockModelFile>("json", (p) => p.ToLower().Split(Path.DirectorySeparatorChar).Contains("models") && p.ToLower().Split(Path.DirectorySeparatorChar).Contains("block"));
-			AssetFactory.AddMapping<ItemModelFile>("json", (p) => p.ToLower().Split(Path.DirectorySeparatorChar).Contains("models") && p.ToLower().Split(Path.DirectorySeparatorChar).Contains("item"));
+			AssetFactory.AddMapping<LangFile>( "json", ( p ) => p.ToLower().Split( Path.DirectorySeparatorChar ).Contains( "lang" ) );
+			AssetFactory.AddMapping<BlockStateFile>( "json", ( p ) => p.ToLower().Split( Path.DirectorySeparatorChar ).Contains( "blockstates" ) );
+			AssetFactory.AddMapping<BlockModelFile>( "json", ( p ) => p.ToLower().Split( Path.DirectorySeparatorChar ).Contains( "models" ) && p.ToLower().Split( Path.DirectorySeparatorChar ).Contains( "block" ) );
+			AssetFactory.AddMapping<ItemModelFile>( "json", ( p ) => p.ToLower().Split( Path.DirectorySeparatorChar ).Contains( "models" ) && p.ToLower().Split( Path.DirectorySeparatorChar ).Contains( "item" ) );
 
-			AssetFactory.AddMapping<TextureFile>("png", (p) => p.ToLower().Split(Path.DirectorySeparatorChar).Contains("textures"));
+			AssetFactory.AddMapping<TextureFile>( "png", ( p ) => p.ToLower().Split( Path.DirectorySeparatorChar ).Contains( "textures" ) );
 		}
 	}
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.IO;
-using System.Threading.Tasks;
-using System.Diagnostics;
+﻿using System.Threading.Tasks;
 
 namespace MCPackEditor.App.Data {
 	public enum ProjectType {
@@ -23,27 +18,27 @@ namespace MCPackEditor.App.Data {
 		public Logical.Project LogicalProject { get { return logicalProject; } }
 
 
-		public Project(string path) {
+		public Project( string path ) {
 			Path = path;
 
 			// Open Project
 			Name = "Opened Project";
 			ProjectType = ProjectType.ModAssetPack;
-			Namespace = Name.Replace(' ', '_');
+			Namespace = Name.Replace( ' ', '_' );
 
-			files = new ProjectFilesystem(path);
+			files = new ProjectFilesystem( path );
 			logicalProject = new Logical.Project();
 
 			files.AssetLoaded += logicalProject.AssetLoaded;
 		}
 
-		public Project(string path, string name, ProjectType pt, string ns) {
+		public Project( string path, string name, ProjectType pt, string ns ) {
 			Path = path;
 			Name = name;
 			ProjectType = pt;
 			Namespace = ns;
 
-			files = new ProjectFilesystem(path);
+			files = new ProjectFilesystem( path );
 			logicalProject = new Logical.Project();
 
 			files.AssetLoaded += logicalProject.AssetLoaded;
@@ -51,6 +46,8 @@ namespace MCPackEditor.App.Data {
 
 		public async Task Load() {
 			await files.LoadFiles();
+
+			await logicalProject.FinalizeLoad();
 		}
 	}
 }
